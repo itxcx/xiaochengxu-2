@@ -29,6 +29,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     if (app.globalData.searchKeyword == '') {
       this.init();
     }
@@ -39,6 +40,9 @@ Page({
       })
       this.getBuy(page, this.data.catid, this.data.arrchildid, app.globalData.searchKeyword);
     }
+
+
+  this.init();
 
   },
   //数据初始化
@@ -418,6 +422,7 @@ getProvence:function(){
      this.setData({
         keyword:''
      })
+
   },
 
   nvaicat_details: function (ev) {
@@ -426,5 +431,6 @@ getProvence:function(){
      wx.navigateTo({
         url: '',
      })
+
   }
 })

@@ -51,7 +51,7 @@ class Reg extends \think\Controller{
      }
 
      public function reg(){
-        $userdd=input('userName');
+        $userdd=input('username');
         $user=db("member")
         ->field("username")
         ->where("username='$userdd'")
@@ -59,10 +59,12 @@ class Reg extends \think\Controller{
         if($user){
           return "2";
       }else{
+    
           db("member")->insert(['mobile'=>input("userPhone"),
-           'password'=>md5(input("pwd")),
-           'username'=> input("userName"),
-           'passport'=>"dsd"
+           'password'=>md5(input("password")),
+           'username'=> input("username"),
+           'passport'=>input("username"),
+           'email'=>"1090018789@qq.com"
            ]);
           return "1";
       }

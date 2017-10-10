@@ -1,7 +1,7 @@
 <?php
 namespace app\api\controller;
 
-class Zixun extends \think\Controller
+class Gongyin extends \think\Controller
 {
     public function get()
     {
@@ -26,17 +26,13 @@ class Zixun extends \think\Controller
     	else{
     		$where_sql='';
     	}
-    	   $zixun_list=db("article_21")
+    	   $zixun_list=db("sell_5")
      			->alias("a")
+         ->where($where_sql)
+         ->join("area c","c.areaid = a.areaid")
 <<<<<<< HEAD
-         ->field("a.areaid,a.catid,a.itemid,a.title,c.catname,d.content")
-         ->where($where_sql)
-         ->join("category c","c.catid = a.catid")
-          ->join("article_data_21 d","d.itemid=a.itemid")
+             ->join("sell_data_5 d","d.itemid=a.itemid")
 =======
-         ->field("a.areaid,a.catid,a.itemid,a.title,c.catname")
-         ->where($where_sql)
-         ->join("category c","c.catid = a.catid")
 >>>>>>> b830e60e54bb53d0353030a21b4cbe139fd3fd36
         ->order("itemid asc")
         ->paginate(10);

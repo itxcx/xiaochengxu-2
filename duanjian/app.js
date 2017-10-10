@@ -27,8 +27,7 @@ App({
     }, parentid)
   },
 
-  globalData: {
-    cityArray: [],
-    searchKeyword: '',
+    content_data:'',//资讯的详细内容
+
   }
 })

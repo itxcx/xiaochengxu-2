@@ -23,6 +23,7 @@ Page({
       });
    },
    userNameInput: function (e) {
+
       this.setData({
          userName: e.detail.value
       })
@@ -37,6 +38,7 @@ Page({
          userPhone: e.detail.value
       })
    },
+
    userCodeInput: function (e) {
       this.setData({
          code: e.detail.value
@@ -124,11 +126,13 @@ Page({
    tap: function (ev) {
       var x = ev.touches[0].clientX - ev.target.offsetLeft;//移动框原点位 
 
+
       // //bar的宽度
       var eleWidth = this.data.eleWidth - ev.target.offsetLeft * 2;
       //drag的宽度
       var dragWidth = eleWidth * 0.18;
       var eeWidth = eleWidth - dragWidth;
+
 
       if (x > eeWidth) {
          x = eeWidth
@@ -215,4 +219,55 @@ Page({
          }
       }
    }
+
+
+      // //bar的宽度
+      var eleWidth = this.data.eleWidth - ev.target.offsetLeft * 2;
+      //drag的宽度
+      var dragWidth = eleWidth * 0.18;
+      var eeWidth = eleWidth - dragWidth;
+
+      if (x > eeWidth) {
+         x = eeWidth
+      } else if (x < 0) {
+         x = 0
+      }
+      if (this.data.move) {
+         var barWidth = x;
+         this.setData({
+            trapX: barWidth,
+            barWidth: barWidth,
+            width: eleWidth,
+            left: x,
+         })
+      }
+   },
+   //拖动结束
+   touchEnd: function (ev) {
+      var that = this;
+      // //bar的宽度
+      var eleWidth = this.data.eleWidth - ev.target.offsetLeft * 2;
+
+      //drag的宽度
+      var dragWidth = eleWidth * 0.18;
+      var eeWidth = eleWidth - dragWidth;
+      if (this.data.left == eeWidth) {
+         that.setData({
+            barWidth: eeWidth,
+            move: false,
+            showWelcome: '完成验证'
+         })
+      } else {
+         ev.target.offsetLeft = 0;
+         this.setData({
+            trapX: 0,
+            left: 0,
+            barWidth: 0,
+            move: true,
+            showWelcome: '拖动完成验证'
+         })
+      }
+   },
+
+
 })

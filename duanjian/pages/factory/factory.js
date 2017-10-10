@@ -403,6 +403,7 @@ getProvence:function(){
      this.setData({
         keyword:''
      })
+
   },
 
   nvaicat_details: function (ev) {
@@ -411,5 +412,6 @@ getProvence:function(){
      wx.navigateTo({
         url: '',
      })
+
   }
 })
