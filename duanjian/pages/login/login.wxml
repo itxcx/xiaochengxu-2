@@ -1,6 +1,6 @@
 <view class="nav">
   <view class="navCont">
-    <block wx:for="{{navArr}}" wx:key="zc">
+    <block wx:for="{{navArr}}">
       <text catchtap="onNavTap" data-index="{{index}}" style="color:#03a9f4">{{item}}</text>
     </block>
   </view>
@@ -9,9 +9,8 @@
 </view>
 
 
-<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:550rpx">
+<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:700rpx;">
   <swiper-item>
-    <scroll-view scroll-y style="height:{{screenHeight + 'px'}}">
       <view class="zhlogin" hidden="{{currentTab != 0}}">
         <view class="formBox">
           <view class="box">
@@ -32,14 +31,20 @@
             <text bindtap="doReg">注册账号</text>
             <text>忘记密码</text>
           </view>
+          <view class="otherlogin">
+            <text>其他方式登陆</text>
+            <view class="img">
+              <image src="../../images/wx.png"></image>
+              <image src="../../images/wb.png"></image>
+              <image src="../../images/QQ.png"></image>
+            </view>
+          </view>
         </view>
       </view>
-    </scroll-view>
   </swiper-item>
 
 
   <swiper-item>
-    <scroll-view scroll-y style="height:{{screenHeight + 'px'}}">
       <view class="sjlogin zhlogin" hidden="{{currentTab != 1}}">
         <view class="formBox">
           <view class="box">
@@ -49,20 +54,24 @@
           <view class="box">
             <image src="../../images/yzm.png" style="width:10rpx;height:40rpx"></image>
             <input placeholder-class="psection" placeholder="手机验证码" name="code" bindinput="userCodeInput" />
-            <button bindtap="onSendmes">{{send}}</button>
+            <button bindtap="onSendmedds" bindInput=" userCodeInput" class="{{click?'':'greydd'}}">{{send}}</button>
           </view>
           <button bindtap="onShowTips2">登陆</button>
-        </view>
-        <view class="tips" animation="{{animationData}}" hidden="{{hiddenTips!=0}}">
-          <text>{{showTips}}</text>
         </view>
         <view class="bottom">
           <view class="two">
             <text bindtap="doReg">注册账号</text>
             <text>忘记密码</text>
           </view>
+          <view class="otherlogin">
+            <text>其他方式登陆</text>
+            <view class="img">
+              <image src="../../images/wx.png"></image>
+              <image src="../../images/wb.png"></image>
+              <image src="../../images/QQ.png"></image>
+            </view>
+          </view>
         </view>
       </view>
-    </scroll-view>
   </swiper-item>
 </swiper>

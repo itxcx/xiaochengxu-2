@@ -1,15 +1,20 @@
 <!--pages/search/search.wxml-->
-<import src="../template/template.wxml"/>
+<import src="../template/template.wxml" />
 <view>
-<view class='container'>
-  <input type='text' value="{{cate}}" bindtap='cateShow'></input>
-  <view class='show' wx:if="{{show}}">
-    <text wx:for="{{djCate}}" bindtap="changeCate" bindtouchmove="changeStyle" data-id="{{index}}"wx:key="dd" class="{{index==cateId?'creative':''}}">{{item}}</text>
+  <view class='container'>
+    <input type='text' value="{{cate}}" bindtap='cateShow' disabled></input>
+    <modal hidden="{{modalFlag}}" no-cancel bindconfirm="modalOk" confirmText="" style='position:absolute;top:100rpx'>
+      <view class='show'>
+        <radio-group class="radio-group">
+          <radio wx:for="{{djCate}}" bindtap="changeCate" bindtouchmove="changeStyle" data-id="{{index}}" wx:key="dd" class="{{index==cateId?'creative':''}}">{{item}}</radio>
+        </radio-group>
+      </view>
+    </modal>
+    <input type='text' placeholder='请输入关键字' bindinput="keywordInput"></input>
+    <text style='color:red;font-size:26rpx;position:absolute;top:280rpx;left:35rpx'>{{warm}}</text>
+    <button bindtap='onSearch'>搜索</button>
   </view>
-  <input type='text' placeholder='请输入关键字'></input>
-  <button>搜索</button>
-</view>
-<view class='template'>
-<template is="item" />
-</view>
+  <view class='template'>
+    <template is="item" />
+  </view>
 </view>
