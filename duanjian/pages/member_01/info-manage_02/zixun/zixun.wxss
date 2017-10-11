@@ -1,0 +1,29 @@
+.nav .navCont{
+  line-height:80rpx;
+  display: flex;
+}
+
+.nav .navCont text{
+  flex:auto;
+  text-align: center;
+  align-self: center;
+  font-size: 32rpx;
+}
+
+.nav .bar{
+  width: calc(100%/4);
+  height:4rpx;
+  background: #03a9f4;
+  transition:all 1s;
+}
+ button{
+  margin-top:50rpx; 
+  width: 90%;
+  background: #03a9f4;
+  color: #fff;
+ }
+.news{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  font-size: 34rpx;
+}

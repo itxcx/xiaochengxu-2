@@ -9,7 +9,6 @@ class Member extends \think\Controller
         $member=db("member")
         ->where("username='$keyWord' or mobile='$keyWord' or email='$keyWord'")
         ->find(); 
-
         return json($member);
     }
 }

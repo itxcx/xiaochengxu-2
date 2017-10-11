@@ -1,0 +1,160 @@
+<view class="nav">
+  <view class="navCont">
+    <block wx:for="{{navArr}}">
+      <text catchtap="onNavTap" data-index="{{index}}" >{{item}}</text>
+    </block>
+  </view>
+  <view class="bar" style="transform:translateX({{offLeft+'px'}})">
+  </view>
+</view>
+
+
+<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:1500rpx;">
+  <swiper-item>
+<view class="pic">
+<image src='{{imgSrc}}'></image>
+   <button class="btn" bindtap='dele'>删除头像</button>
+   <button class="btn2">修改头像</button>
+</view>
+<view class="content">
+<view class="box">
+<text>会员名</text><input type='text' value='{{zhuceData.username}}' disabled></input>
+</view>
+<view class="box">
+<text>真实姓名</text><input type='text' value='{{zhuceData.username}}' disabled></input>
+</view>
+<view class="box" style="position:relative;">
+<text>昵称</text><input type='text' value='{{zhuceData.username}}' disabled></input>
+<text style='position:absolute;right:10rpx;top:5rpx;color:black'>[修改]</text>
+</view>
+<view class="box">
+<text>邮箱</text><input type='text' placeholder='邮件' bindinput='emailInput'></input>
+</view>
+<view class="box">
+<text>性别</text><radio>男</radio><radio>女</radio>
+</view>
+<view class="box2" style="position:relative;">
+<text>手机号码</text><input type='text' value='{{zhuceData.mobile}}' disabled> </input>
+<text style='position:absolute;right:10rpx;top:5rpx;color:black'>[修改]</text>
+</view>
+<view class="box2">
+<text>部门</text><input type='text' placeholder='部门' bindinput='departmentInput'></input>
+</view>
+<view class="box2">
+<text>职位</text><input type='text' placeholder='职位' bindinput='careerInput'></input>
+</view>
+<view class="box2">
+<text>QQ</text><input type='text' placeholder='QQ' bindinput='QQInput'></input>
+</view>
+<view class="box2">
+<text>阿里旺旺</text><input type='text' placeholder='阿里旺旺' bindinput='aliInput'></input>
+</view>
+</view>
+<button bindtap="onUpdata">提交</button>
+  </swiper-item>
+
+  <swiper-item>
+  <view class="content">
+   <view class="box2">
+<text>新登陆密码</text><input type='text' placeholder='如不更改密码，请留空'></input>
+</view>
+   <view class="box2">
+<text>重复登陆密码</text><input type='text' placeholder='重复登陆密码'></input>
+</view>
+   <view class="box2">
+<text>现有密码</text><input type='text' placeholder='如要更改密码，需输入现有密码'></input>
+</view>
+   <view class="box2">
+<text>新支付密码</text><input type='text' placeholder='新支付密码'></input>
+</view>
+   <view class="box2">
+<text>重复支付密码</text><input type='text' placeholder='如不更改密码，请留空'></input>
+</view>
+   <view class="box2">
+<text>新支付密码</text><input type='text' placeholder='支付密码默认和注册相同'></input>
+</view>
+</view>
+<button>提交</button>
+  </swiper-item>
+
+    <swiper-item>
+      <view class="content">
+   <view class="box">
+<text>公司名</text><input type='text' bindinput='companynameInput'></input>
+</view>
+   <view class="box2">
+<text>形象图片</text><image src='../../../../images/addpic.jpg' style='width:100rpx;height:100rpx;margin-left:30rpx;margin-bottom:-30rpx'></image>
+</view>
+   <view class="box" style="position:relative">
+<text>主营行业</text>
+    <view class="page_bd" style="position:absolute;z-index:334;top:-10rpx">
+        <view class="body_head" bindtap="showitemHangye">{{selectHangye}}</view>
+        <navigator  wx:for="{{hangye}}" ><view class="{{openHangye?'display_show':'display_none'}}" bindtap='selectHangye' data-id="{{index}}">{{item}}</view></navigator>
+    </view>
+</view>
+   <view class="box" style="position:relative">
+<text>公司类型</text>
+    <view class="page_bd" style="position:absolute;z-index:333;top:-10rpx">
+        <view class="body_head" bindtap="showitemType">{{selectType}}</view>
+        <navigator  wx:for="{{compType}}" ><view class="{{openType?'display_show':'display_none'}}" bindtap='selectType' data-id="{{index}}">{{item}}</view></navigator>
+    </view>
+</view>
+   <view class="box" style="position:relative">
+<text>地区</text>
+    <view class="page_bd" style="position:absolute;z-index:332;top:-10rpx">
+        <view class="body_head" bindtap="showitemArea">{{selectArea}}</view>
+        <navigator  wx:for="{{provence}}" ><view class="{{openArea?'display_show':'display_none'}}" bindtap='selectArea' data-id="{{index}}">{{item.areaname}}</view></navigator>
+    </view>
+</view>
+   <view class="box">
+<text>经营范围</text><input type='text' placeholder='主要经营范围' bindinput='rangeInput'></input>
+</view>
+   <view class="box">
+<text>成立年份</text><input type='text' placeholder='公司成立年份' bindinput='startInput'></input>
+</view>
+
+   <view class="box" style="position:relative">
+<text>公司规模</text>
+    <view class="page_bd" style="position:absolute;z-index:331;top:-10rpx">
+        <view class="body_head" bindtap="showitemSize">{{selectSize}}</view>
+        <navigator  wx:for="{{size}}" ><view class="{{openSize?'display_show':'display_none'}}" bindtap='selectSize' data-id="{{index}}">{{item}}</view></navigator>
+    </view>
+</view>
+   <view class="box2">
+<text>销售的产品</text><input type='text' placeholder='提供的服务' bindinput='sellgoodsInput'></input>
+</view>
+   <view class="box2">
+<text>采购的产品</text><input type='text' placeholder='需要的服务' bindinput='buygoodsInput'></input>
+</view>
+</view>
+<button bindtap='oncompanyUpdata'>提交</button> 
+  </swiper-item>
+
+    <swiper-item>
+   <view class="content">
+   <view class="box2">
+<text>公司地址</text><input type='text' placeholder='公司地址'></input>
+</view>
+   <view class="box2">
+<text>公司电话</text><input type='text' placeholder='公司电话'></input>
+</view>
+   <view class="box2">
+<text>邮政编码</text><input type='text' placeholder='邮政编码'></input>
+</view>
+   <view class="box2">
+<text>公司传真</text><input type='text' placeholder='公司传真'></input>
+</view>
+   <view class="box2">
+<text>公司Email</text><input type='text' placeholder='公司Email'></input>
+</view>
+   <view class="box2">
+<text>公司网址</text><input type='text' placeholder='公司网址'></input>
+</view>
+</view>
+<button >提交</button>
+  </swiper-item>
+
+</swiper>
+
+<modal hidden="{{hidden}}" title="确认删除头像" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+</modal>

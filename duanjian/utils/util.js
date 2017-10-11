@@ -98,7 +98,7 @@ function getBuy(callback, page, catid, arrchildid, keyword) {
 //获取厂家
 function getFactory(callback, page, catid, arrchildid, keyword) {
    wx.request({
-      url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/factory/get",
+     url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/factory/getfinish",
       header: {
          'content-type': 'application/json',
       },
@@ -259,7 +259,57 @@ function regester(callback, username, password,userPhone) {
       }
    })
 }
-
+//更新个人信息
+function updataMes(callback, email,department, career, QQ,ali,userid) {
+  wx.request({
+    url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/updata/basedata",
+    data: {
+      email: email,
+      department, department,
+      career: career,
+      QQ: QQ, 
+      ali: ali, 
+      userid: userid
+     
+    },
+    method: "get",
+    header: {
+      "content-type": "json"
+    },
+    success: function (res) {
+      if (res.statusCode == "200") {
+        callback(res.data);
+      }
+    }
+  })
+}
+//更新个人公司信息
+function updataCompanyMes(callback, companyname, hangye, tpye, adress, range, start, scale, sellgoods, buygoods,userid) {
+  wx.request({
+    url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/updata/companydata",
+    data: {
+      companyname: companyname,
+      hangye, hangye,
+      tpye: tpye,
+      adress:adress,
+      range:range,
+      start:start,
+      scale:scale,
+      sellgoods: sellgoods,
+      buygoods: buygoods,
+      userid: userid
+    },
+    method: "get",
+    header: {
+      "content-type": "json"
+    },
+    success: function (res) {
+      if (res.statusCode == "200") {
+        callback(res.data);
+      }
+    }
+  })
+}
 //获取一级分类
 function getFirstCategory(callback,moduleid) {
    wx.request({
@@ -316,6 +366,60 @@ function getMember(callback, keyword) {
       }
    })
 }
+//获取个人供应数据
+function getGongyinPerson(callback, keyword) {
+  wx.request({
+    url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/gongyinperson/getfinish",
+    data: {
+      keyword: keyword
+    },
+    method: "get",
+    header: {
+      "content-type": "json"
+    },
+    success: function (res) {
+      if (res.statusCode == "200") {
+        callback(res.data);
+      }
+    }
+  })
+}
+//获取个人供应审核中数据
+function getGongyinDoing(callback, keyword) {
+  wx.request({
+    url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/gongyinperson/getdoing",
+    data: {
+      keyword: keyword
+    },
+    method: "get",
+    header: {
+      "content-type": "json"
+    },
+    success: function (res) {
+      if (res.statusCode == "200") {
+        callback(res.data);
+      }
+    }
+  })
+}
+//获取个人供应未通过数据
+function getGongyinReject(callback, keyword) {
+  wx.request({
+    url: "http://localhost/zdj/xiaochengxu/zgdjw/public/api/gongyinperson/getreject",
+    data: {
+      keyword: keyword
+    },
+    method: "get",
+    header: {
+      "content-type": "json"
+    },
+    success: function (res) {
+      if (res.statusCode == "200") {
+        callback(res.data);
+      }
+    }
+  })
+}
 module.exports = {
   getProvence: getProvence,
   getCity: getCity,
@@ -332,5 +436,10 @@ module.exports = {
   getExhibit: getExhibit,
   getClub: getClub,
   getKnow: getKnow,
-  getMember: getMember
+  getMember: getMember,
+  getGongyinPerson: getGongyinPerson,
+  getGongyinDoing: getGongyinDoing, 
+  getGongyinReject: getGongyinReject,
+  updataMes: updataMes,
+  updataCompanyMes: updataCompanyMes
 }

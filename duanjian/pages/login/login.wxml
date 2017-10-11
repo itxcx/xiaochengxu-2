@@ -1,7 +1,6 @@
 <view class="nav">
   <view class="navCont">
     <block wx:for="{{navArr}}">
-
       <text catchtap="onNavTap" data-index="{{index}}" style="color:#03a9f4">{{item}}</text>
     </block>
   </view>
@@ -9,8 +8,8 @@
   </view>
 </view>
 
-<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:700rpx;">
 
+<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:700rpx;">
   <swiper-item>
       <view class="zhlogin" hidden="{{currentTab != 0}}">
         <view class="formBox">
@@ -32,7 +31,6 @@
             <text bindtap="doReg">注册账号</text>
             <text>忘记密码</text>
           </view>
-
           <view class="otherlogin">
             <text>其他方式登陆</text>
             <view class="img">
@@ -41,7 +39,6 @@
               <image src="../../images/QQ.png"></image>
             </view>
           </view>
-
         </view>
       </view>
   </swiper-item>
@@ -66,7 +63,6 @@
             <text bindtap="doReg">注册账号</text>
             <text>忘记密码</text>
           </view>
-
           <view class="otherlogin">
             <text>其他方式登陆</text>
             <view class="img">
@@ -79,4 +75,3 @@
       </view>
   </swiper-item>
 </swiper>
-

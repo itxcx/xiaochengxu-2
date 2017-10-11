@@ -29,7 +29,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.init();
+    if (app.globalData.searchKeyword == '') {
+      this.init();
+    }
+    else {
+      var page = 1;
+      this.setData({
+        current_page: page
+      })
+      this.getSell(page, this.data.catid, this.data.arrchildid, app.globalData.searchKeyword);
+    }
   },
   //数据初始化
   init:function(){
@@ -318,11 +327,11 @@ getProvence:function(){
     data.getSell(function(data){
        var arr=[];
        for(var i=0;i<data.data.length;i++){
-          arr.push({ title: data.data[i].title, areaname: data.data[i].areaname, company: data.data[i].company, edittime: new Date(data.data[i].edittime * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ')})
-       }
-       console.log(arr);
+          arr.push({ title: data.data[i].title, areaname: data.data[i].areaname, company: data.data[i].company, edittime: new Date(data.data[i].addtime * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ')})
+       };
         that.setData({
            zixun: arr,
+           content:data.data,
           last_page:data.last_page
         })
     }, page, catid, areaid,keyword)
@@ -408,15 +417,13 @@ getProvence:function(){
      this.setData({
         keyword:''
      })
-
   },
 
   nvaicat_details: function (ev) {
      var index = ev.currentTarget.dataset.index;
-     app.globalData.content_data = this.data.zixun[index];
+     app.globalData.content_data = this.data.content[index];
      wx.navigateTo({
-        url: '',
+        url: '../goodsdetail/goodsdetail',
      })
-
   }
 })

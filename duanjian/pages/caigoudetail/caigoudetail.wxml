@@ -1,0 +1,79 @@
+<import src="../wxParse/wxParse.wxml"/> 
+<scroll-view scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscroll="scroll" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
+<view class="container1">
+  <view class="nav">
+    <text>首页 > 锻件供应 > 法兰锻件</text>
+  </view>
+  <view class="Carousel">
+    <view class="title">{{gddata.title}}</view>
+    <view class="date"><image src='../../images/etime.png'></image>{{etime}}</view>
+    <!--轮播  -->
+    <swiper indicator-dots="{{true}}" circular="{{true}}" autoplay="{{true}}" interval="4000" style="height:500rpx;width:100%">
+      <swiper-item>
+        <image src="../../images/1.jpg" style="width:100%"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/2.jpg" style="width:100%"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="price">
+    <view class="t">价格:未填</view>
+    <view class="t">品牌:君政承插</view>
+  </view>
+  <button type="primary" class="btn"> 发送询价 </button>
+  <view class="gy">
+    <view class="gyxx">
+      <view class="gy-l"><image src="../../images/touxiang.png"></image></view>
+      <view class="gy-c">
+        <view class="gs">{{gddata.company}}</view>
+
+        <view class="gs">我是供应商</view>
+      </view>
+      <view class="gy-r">></view>
+    </view>
+    <view class="btn-t">
+      <view class="btn2">全部锻件供应</view>
+      <view class="btn2">进入商铺</view>
+    </view>
+  </view>
+  <view class="js">
+    <view class="present">
+  <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+  </view>
+  <view class="lxfs">联系方式</view>
+  <view class="jtlxfs">
+    公司:{{gddata.company}}</view>
+  <view class="jtlxfs">
+    状态:离线 发送信件 在线交谈</view>
+  <view class="jtlxfs">
+    姓名:{{gddata.truename}}{{gddata.career}}(先生)</view>
+  <view class="jtlxfs">电话:{{gddata.telephone}}</view>
+  <view class="jtlxfs">手机:{{gddata.mobile}}</view>
+  <view class="jtlxfs">传真:{{gddata.fax}}</view>
+  <view class="jtlxfs">地区:{{gddata.regcity}}</view>
+  <view class="jtlxfs">地址:{{gddata.address}}</view>
+  <view class="jtlxfs">邮件:{{gddata.email}}</view>
+  <view class='bottom-list'>
+    <view class='bl-t'>同类锻件供应 </view>
+    <view class='bl-c'>承插管箍 单承口管箍 不锈钢 耐高压 </view>
+    <view class='bl-c'>承插管箍 单承口管箍 不锈钢 耐高压 </view>
+    <view class='bl-c'>承插管箍 单承口管箍 不锈钢 耐高压 </view>
+    <view class='bl-c'>承插管箍 单承口管箍 不锈钢 耐高压 </view>
+  </view>
+
+  <view class="nav-bottom">
+    <view class="sc">
+      <image src="../../images/xx.png"></image>收藏</view>
+    <view class="sc">
+      <image src="../../images/xj.png"></image>询价</view>
+    <view class="sc">
+      <image src="../../images/lx.png"></image>联系</view>
+    <view class="zxjt" bindtap='chat'>在线交谈</view>
+  </view>
+  <view class="return" bindtap="goTop" hidden="{{floorstatus}}">
+    <image class='returnTop' src='../../images/returnTop.png'></image>
+  </view>
+</view>
+</scroll-view>

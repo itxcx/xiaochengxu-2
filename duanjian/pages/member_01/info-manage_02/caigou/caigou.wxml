@@ -1,0 +1,31 @@
+<view class="nav">
+  <view class="navCont">
+    <block wx:for="{{navArr}}">
+      <text catchtap="onNavTap" data-index="{{index}}" >{{item}}</text>
+    </block>
+  </view>
+  <view class="bar" style="transform:translateX({{offLeft+'px'}})">
+  </view>
+</view>
+
+
+<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:300rpx;">
+  <swiper-item>
+     <view class="news">暂无信息1</view>
+  </swiper-item>
+
+  <swiper-item>
+     <view class="news">暂无信息2</view>
+  </swiper-item>
+
+    <swiper-item>
+     <view class="news">暂无信息3</view>
+  </swiper-item>
+
+    <swiper-item>
+     <view class="news">暂无信息4</view>
+  </swiper-item>
+
+</swiper>
+<button bindtap="onAdd">添加</button>
+

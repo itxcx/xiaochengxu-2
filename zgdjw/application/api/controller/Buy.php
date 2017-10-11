@@ -29,8 +29,9 @@ class   Buy extends \think\Controller
            $zixun_list=db("buy_6")
                 ->alias("a")
          ->where($where_sql)
+          ->field("a.areaid,a.catid,a.itemid,a.title,c.catname,d.content,a.username,a.introduce,a.company,a.addtime,a.mobile,a.email,a.address,a.telephone,a.truename,a.msn,a.tag,c.catname,c.parentid")
          ->join("category c","c.catid = a.catid")
-         ->join("area r","r.areaid = a.areaid")
+          ->join("buy_data_6 d","d.itemid=a.itemid")
         ->order("itemid asc")
         ->paginate(10);
         // 分页 

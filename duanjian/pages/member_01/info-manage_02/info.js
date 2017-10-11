@@ -1,70 +1,28 @@
 // pages/info-mange_02/info.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
-  back:function(){
-    wx.navigateBack({
-      delta: 1
+  manger:function(){
+    wx:wx.navigateTo({
+      url: 'gongyin/gongyin',
+
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+  caigou: function () {
+    wx: wx.navigateTo({
+      url: 'caigou/caigou',
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+    })
   },
+  zhanhui: function () {
+    wx: wx.navigateTo({
+      url: 'zhanhui/zhanhui',
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+    })
   },
+  zixun: function () {
+    wx: wx.navigateTo({
+      url: 'zixun/zixun',
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

@@ -29,21 +29,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    if (app.globalData.searchKeyword==''){
+    if (app.globalData.searchKeyword == '') {
       this.init();
     }
-    else{
+    else {
       var page = 1;
       this.setData({
         current_page: page
       })
       this.getZixun(page, this.data.catid, this.data.arrchildid, app.globalData.searchKeyword);
     }
-
-
-  this.init();
-
   },
   //数据初始化
   init:function(){
@@ -370,7 +365,6 @@ getProvence:function(){
 
   nextPage: function () {
     var page = this.data.current_page;
-
     if (page == this.data.last_page) {
       page = this.data.last_page
     }else{
@@ -418,15 +412,13 @@ getProvence:function(){
      this.setData({
         keyword:''
      })
-
   },
 
   nvaicat_details:function(ev){
      var index = ev.currentTarget.dataset.index;
      app.globalData.content_data =this.data.zixun[index];
      wx.navigateTo({
-        url: '',
+        url: '../goodsdetail/goodsdetail',
      })
-
   }
 })

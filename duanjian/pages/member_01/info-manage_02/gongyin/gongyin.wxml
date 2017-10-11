@@ -1,0 +1,37 @@
+<view class="nav">
+  <view class="navCont">
+    <block wx:for="{{navArr}}">
+      <text catchtap="onNavTap" data-index="{{index}}" >{{item}}</text>
+    </block>
+  </view>
+  <view class="bar" style="transform:translateX({{offLeft+'px'}})">
+  </view>
+</view>
+
+
+<swiper current="{{currentTab}}" bindchange="onBindChange" style="height:300rpx;">
+  <swiper-item>
+     <view class="news" wx:for="{{gongyin_finish}}">
+     <text>发布内容: {{item.word}}    发布者:{{item.username}}   发布时间:{{item.addtime}}</text>
+     </view>
+  </swiper-item>
+
+  <swiper-item>
+     <view class="news" wx:for="{{gongyinDoing}}">
+          <text>发布内容:{{item.word}}发布者:{{item.username}}发布时间:{{item.addtime}}</text>
+     </view>
+  </swiper-item>
+
+    <swiper-item>
+     <view class="news" wx:for="{{gongyinReject}}">
+               <text>发布内容:{{item.word}}发布者:{{item.username}}发布时间:{{item.addtime}}</text>
+     </view>
+  </swiper-item>
+
+    <swiper-item>
+     <view class="news">暂无信息4</view>
+  </swiper-item>
+
+</swiper>
+<button bindtap="onAdd">添加</button>
+

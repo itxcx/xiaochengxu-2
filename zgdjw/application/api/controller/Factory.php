@@ -29,7 +29,9 @@ class Factory extends \think\Controller
     	   $zixun_list=db("company")
      			->alias("a")
          ->where($where_sql)
+         ->field("a.areaid,a.catid,a.itemid,a.title,c.areaname,d.content")
          ->join("area c","c.areaid = a.areaid")
+        ->join("company_data d","d.itemid=a.itemid")
         ->order("userid desc")
         ->paginate(10);
     	// 分页

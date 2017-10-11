@@ -85,9 +85,8 @@ color: #757575;
 }
 .contentt .xianxi .right .time-add{
    display: flex;
-   margin: 0px;
-   height: 0px;
     text-align:left;
+    margin-bottom: 20rpx;
 }
 .contentt .xianxi .right .address,.contentt .xianxi .right .time{
      font-size:25rpx;
